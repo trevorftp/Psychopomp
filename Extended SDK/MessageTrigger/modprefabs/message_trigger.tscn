@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvchpm504ouxx"]
+
+[ext_resource type="Script" path="res://Scripts/DialogueTrigger.gd" id="1_vdjcc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d04f8"]
+size = Vector3(5, 1, 1)
+
+[node name="message_trigger" type="Area3D"]
+script = ExtResource("1_vdjcc")
+character_name = "Default Name"
+message = "Hello, this is a custom message!"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_d04f8")
