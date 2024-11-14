@@ -1,0 +1,6 @@
+Your info.cfg in your mod but be changed from
+(mod_init_map = "res://modScenes/INIT.tscn") to (mod_init_map = "res://modScenes/ModWorldMap.tscn")
+or you can rename the map in modScenes to INIT, but then you must rename your game scenes to something else.
+
+Each location button has a script which changes scenes to that location. 
+You must edit the scene name on each button for it to transfer.

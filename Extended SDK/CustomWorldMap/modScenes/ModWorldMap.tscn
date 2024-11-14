@@ -1,0 +1,304 @@
+[gd_scene load_steps=19 format=3 uid="uid://dbck3kilaxqbu"]
+
+[ext_resource type="Shader" path="res://Shaders/WaterCanvas.gdshader" id="3_vcxgg"]
+[ext_resource type="Texture2D" uid="uid://dv8brikcj0m7t" path="res://textures/WaterCaustic.png" id="4_yx7sw"]
+[ext_resource type="Texture2D" uid="uid://ck3g65wtfufno" path="res://Sprites/temp.png" id="5_lfn02"]
+[ext_resource type="Texture2D" uid="uid://dw011ploum6ra" path="res://Sprites/MapPsych1.png" id="5_sptcf"]
+[ext_resource type="FontFile" uid="uid://b4gr85in5vyyo" path="res://Fonts/DBStylez.ttf" id="7_cmg46"]
+[ext_resource type="Script" path="res://Scripts/QuitToMenu.gd" id="9_dle5t"]
+[ext_resource type="Script" path="res://Scripts/MapButton.gd" id="9_v3gpa"]
+[ext_resource type="Script" path="res://Scripts/ModMapButton.gd" id="12_fkxhr"]
+[ext_resource type="AudioStream" uid="uid://der8a850p4y1y" path="res://Music/UnderSkinSkies.ogg" id="16_i0se8"]
+[ext_resource type="Texture2D" uid="uid://dsen0wltejna6" path="res://Sprites/UI/Fullscreen1.png" id="20_enme4"]
+[ext_resource type="Texture2D" uid="uid://cd7e1g1xsgu57" path="res://Sprites/UI/Fullscreen2.png" id="21_q52s8"]
+[ext_resource type="Script" path="res://Scripts/Fullscreen.gd" id="22_jrlxx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pxc20"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5mmss"]
+shader = ExtResource("3_vcxgg")
+shader_parameter/strength = 20.0
+shader_parameter/uv_scaling = 0.1
+shader_parameter/movement_direction = Vector2(1, 0)
+shader_parameter/movement_speed = 0.01
+shader_parameter/NOISE_TEXTURE = ExtResource("4_yx7sw")
+
+[sub_resource type="Animation" id="Animation_pqmtr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0mcxc"]
+resource_name = "Walky"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1jlwi"]
+_data = {
+"RESET": SubResource("Animation_pqmtr"),
+"Walky": SubResource("Animation_0mcxc")
+}
+
+[sub_resource type="Environment" id="Environment_4bkj6"]
+background_mode = 3
+glow_intensity = 5.25
+glow_strength = 0.58
+glow_bloom = 0.11
+glow_blend_mode = 3
+glow_hdr_threshold = 4.0
+glow_hdr_scale = 4.0
+glow_hdr_luminance_cap = 17.3
+adjustment_enabled = true
+adjustment_saturation = 1.21
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.529412, 0.529412, 0.529412, 1)
+scale = Vector2(960, 544)
+texture = SubResource("CanvasTexture_pxc20")
+centered = false
+
+[node name="Filter2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5mmss")
+offset_top = 2.0
+offset_right = 969.0
+offset_bottom = 540.0
+mouse_filter = 2
+
+[node name="Player" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(482, 403)
+scale = Vector2(2, 2)
+texture = ExtResource("5_sptcf")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_1jlwi")
+}
+autoplay = "Walky"
+
+[node name="World Map" type="RichTextLabel" parent="."]
+offset_left = 359.0
+offset_top = 1.0
+offset_right = 604.0
+offset_bottom = 41.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_cmg46")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave][center]World Map"
+scroll_active = false
+
+[node name="World Map2" type="RichTextLabel" parent="."]
+offset_left = 366.0
+offset_top = 27.0
+offset_right = 594.0
+offset_bottom = 67.0
+theme_override_colors/default_color = Color(0.937255, 0.921569, 0.929412, 1)
+theme_override_fonts/normal_font = ExtResource("7_cmg46")
+bbcode_enabled = true
+text = "[wave][center]Select your destination"
+scroll_active = false
+
+[node name="Location" type="Sprite2D" parent="."]
+position = Vector2(484, 152)
+texture = ExtResource("5_lfn02")
+
+[node name="Location Label" type="RichTextLabel" parent="Location"]
+offset_left = -100.0
+offset_top = 64.0
+offset_bottom = 76.0
+scale = Vector2(2, 2)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_cmg46")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[wave][center]Location Name"
+
+[node name="TextureButton" type="TextureButton" parent="Location"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_fkxhr")
+destination = "yourSceneName"
+
+[node name="Location2" type="Sprite2D" parent="."]
+position = Vector2(680, 152)
+texture = ExtResource("5_lfn02")
+
+[node name="Location Label" type="RichTextLabel" parent="Location2"]
+offset_left = -100.0
+offset_top = 64.0
+offset_bottom = 76.0
+scale = Vector2(2, 2)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_cmg46")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[wave][center]Location Name"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="Location2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_fkxhr")
+destination = "yourSceneName"
+metadata/_edit_use_anchors_ = true
+
+[node name="Location5" type="Sprite2D" parent="."]
+position = Vector2(680, 336)
+texture = ExtResource("5_lfn02")
+
+[node name="Location Label" type="RichTextLabel" parent="Location5"]
+offset_left = -100.0
+offset_top = 64.0
+offset_bottom = 76.0
+scale = Vector2(2, 2)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_cmg46")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[wave][center]Location Name"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="Location5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_fkxhr")
+destination = "yourSceneName"
+metadata/_edit_use_anchors_ = true
+
+[node name="Location3" type="Sprite2D" parent="."]
+position = Vector2(288, 152)
+texture = ExtResource("5_lfn02")
+
+[node name="Location Label" type="RichTextLabel" parent="Location3"]
+offset_left = -100.0
+offset_top = 64.0
+offset_bottom = 76.0
+scale = Vector2(2, 2)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_cmg46")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[wave][center]Location Name"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="Location3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_fkxhr")
+destination = "yourSceneName"
+metadata/_edit_use_anchors_ = true
+
+[node name="Location4" type="Sprite2D" parent="."]
+position = Vector2(288, 336)
+texture = ExtResource("5_lfn02")
+
+[node name="Location Label" type="RichTextLabel" parent="Location4"]
+offset_left = -100.0
+offset_top = 64.0
+offset_bottom = 76.0
+scale = Vector2(2, 2)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_cmg46")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[wave][center]Location Name"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="Location4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_v3gpa")
+destination = "yourSceneName"
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_i0se8")
+volume_db = -11.556
+autoplay = true
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 416.0
+offset_top = 504.0
+offset_right = 554.0
+offset_bottom = 535.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_cmg46")
+theme_override_font_sizes/font_size = 16
+text = "Quit To  Main Menu"
+script = ExtResource("9_dle5t")
+
+[node name="SoundSource" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="FullscreenButton" type="TextureButton" parent="."]
+offset_left = 928.0
+offset_right = 960.0
+offset_bottom = 32.0
+texture_normal = ExtResource("20_enme4")
+texture_pressed = ExtResource("21_q52s8")
+script = ExtResource("22_jrlxx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4bkj6")
