@@ -9,4 +9,5 @@ This repository contains all the mods I've created for *Psychopomp Gold*, comple
 
 ### The 'Extended' Modding SDK!
 
-- [Collision Message Dialogues](https://github.com/trevorftp/Psychopomp/tree/main/Extended%20SDK/MessageTrigger) - A script and prefab that allow you to drag and drop message triggers into your scene that well, trigger dialogue! 
+- [Collision Message Dialogues](https://github.com/trevorftp/Psychopomp/tree/main/Extended%20SDK/MessageTrigger) - A script and prefab that allow you to drag and drop message triggers into your scene that well, trigger dialogue!
+- [Custom World Map](https://github.com/trevorftp/Psychopomp/tree/main/Extended%20SDK/CustomWorldMap) - A custom world map.
