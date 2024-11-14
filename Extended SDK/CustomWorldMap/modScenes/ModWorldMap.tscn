@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dbck3kilaxqbu"]
+[gd_scene load_steps=18 format=3 uid="uid://dbck3kilaxqbu"]
 
 [ext_resource type="Shader" path="res://Shaders/WaterCanvas.gdshader" id="3_vcxgg"]
 [ext_resource type="Texture2D" uid="uid://dv8brikcj0m7t" path="res://textures/WaterCaustic.png" id="4_yx7sw"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://Scripts/QuitToMenu.gd" id="9_dle5t"]
 [ext_resource type="Script" path="res://Scripts/MapButton.gd" id="9_v3gpa"]
 [ext_resource type="Script" path="res://Scripts/ModMapButton.gd" id="12_fkxhr"]
-[ext_resource type="AudioStream" uid="uid://der8a850p4y1y" path="res://Music/UnderSkinSkies.ogg" id="16_i0se8"]
 [ext_resource type="Texture2D" uid="uid://dsen0wltejna6" path="res://Sprites/UI/Fullscreen1.png" id="20_enme4"]
 [ext_resource type="Texture2D" uid="uid://cd7e1g1xsgu57" path="res://Sprites/UI/Fullscreen2.png" id="21_q52s8"]
 [ext_resource type="Script" path="res://Scripts/Fullscreen.gd" id="22_jrlxx"]
@@ -272,11 +271,6 @@ grow_vertical = 2
 script = ExtResource("9_v3gpa")
 destination = "yourSceneName"
 metadata/_edit_use_anchors_ = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_i0se8")
-volume_db = -11.556
-autoplay = true
 
 [node name="Button2" type="Button" parent="."]
 offset_left = 416.0
