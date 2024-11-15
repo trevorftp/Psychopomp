@@ -7,6 +7,7 @@ extends Area3D
 var message_trigger = null
 var message_trigger_script = null
 var player = null
+var used = false
 
 func _ready():
 	connect("area_entered", Callable(self, "_on_area_entered")) # pre-connect signal
@@ -29,8 +30,10 @@ func _ready():
 		print("[Tsuskido] Failed to load MessageTrigger script.")
 	
 func _on_area_entered(area):
-	if area.name == "PlayerArea" and area.get_parent() == player and message_trigger:
-		message_trigger.OnAreaEntered(player)
-	else:
-		print("[Tsuskido] Non-player or unexpected node entered:", area)
+	if not used:
+		used = true
+		if area.name == "PlayerArea" and area.get_parent() == player and message_trigger:
+			message_trigger.OnAreaEntered(player)
+		else:
+			print("[Tsuskido] Non-player or unexpected node entered:", area)
 
