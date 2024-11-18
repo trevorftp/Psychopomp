@@ -1,15 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbck3kilaxqbu"]
+[gd_scene load_steps=17 format=3 uid="uid://dbck3kilaxqbu"]
 
 [ext_resource type="Shader" path="res://Shaders/WaterCanvas.gdshader" id="3_vcxgg"]
 [ext_resource type="Texture2D" uid="uid://dv8brikcj0m7t" path="res://textures/WaterCaustic.png" id="4_yx7sw"]
-[ext_resource type="Texture2D" uid="uid://ck3g65wtfufno" path="res://Sprites/temp.png" id="5_lfn02"]
-[ext_resource type="Texture2D" uid="uid://dw011ploum6ra" path="res://Sprites/MapPsych1.png" id="5_sptcf"]
-[ext_resource type="FontFile" uid="uid://b4gr85in5vyyo" path="res://Fonts/DBStylez.ttf" id="7_cmg46"]
+[ext_resource type="Texture2D" uid="uid://cr273r7ih8ss5" path="res://Sprites/MapPsych1.png" id="5_sptcf"]
+[ext_resource type="Texture2D" uid="uid://c6ieny0sk1ilh" path="res://Sprites/temp.png" id="6_2q55o"]
+[ext_resource type="FontFile" uid="uid://3wcfres3jl6e" path="res://Fonts/DBStylez.ttf" id="7_cmg46"]
 [ext_resource type="Script" path="res://Scripts/QuitToMenu.gd" id="9_dle5t"]
-[ext_resource type="Script" path="res://Scripts/MapButton.gd" id="9_v3gpa"]
 [ext_resource type="Script" path="res://Scripts/ModMapButton.gd" id="12_fkxhr"]
-[ext_resource type="Texture2D" uid="uid://dsen0wltejna6" path="res://Sprites/UI/Fullscreen1.png" id="20_enme4"]
-[ext_resource type="Texture2D" uid="uid://cd7e1g1xsgu57" path="res://Sprites/UI/Fullscreen2.png" id="21_q52s8"]
+[ext_resource type="Texture2D" uid="uid://3gv6210jjl6m" path="res://Sprites/UI/Fullscreen1.png" id="20_enme4"]
+[ext_resource type="Texture2D" uid="uid://bq1kymojsrap6" path="res://Sprites/UI/Fullscreen2.png" id="21_q52s8"]
 [ext_resource type="Script" path="res://Scripts/Fullscreen.gd" id="22_jrlxx"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_pxc20"]
@@ -126,9 +125,9 @@ scroll_active = false
 
 [node name="Location" type="Sprite2D" parent="."]
 position = Vector2(484, 152)
-texture = ExtResource("5_lfn02")
+texture = ExtResource("6_2q55o")
 
-[node name="Location Label" type="RichTextLabel" parent="Location"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Location"]
 offset_left = -100.0
 offset_top = 64.0
 offset_bottom = 76.0
@@ -154,9 +153,9 @@ destination = "yourSceneName"
 
 [node name="Location2" type="Sprite2D" parent="."]
 position = Vector2(680, 152)
-texture = ExtResource("5_lfn02")
+texture = ExtResource("6_2q55o")
 
-[node name="Location Label" type="RichTextLabel" parent="Location2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Location2"]
 offset_left = -100.0
 offset_top = 64.0
 offset_bottom = 76.0
@@ -184,9 +183,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Location5" type="Sprite2D" parent="."]
 position = Vector2(680, 336)
-texture = ExtResource("5_lfn02")
+texture = ExtResource("6_2q55o")
 
-[node name="Location Label" type="RichTextLabel" parent="Location5"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Location5"]
 offset_left = -100.0
 offset_top = 64.0
 offset_bottom = 76.0
@@ -214,9 +213,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Location3" type="Sprite2D" parent="."]
 position = Vector2(288, 152)
-texture = ExtResource("5_lfn02")
+texture = ExtResource("6_2q55o")
 
-[node name="Location Label" type="RichTextLabel" parent="Location3"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Location3"]
 offset_left = -100.0
 offset_top = 64.0
 offset_bottom = 76.0
@@ -244,9 +243,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Location4" type="Sprite2D" parent="."]
 position = Vector2(288, 336)
-texture = ExtResource("5_lfn02")
+texture = ExtResource("6_2q55o")
 
-[node name="Location Label" type="RichTextLabel" parent="Location4"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Location4"]
 offset_left = -100.0
 offset_top = 64.0
 offset_bottom = 76.0
@@ -268,7 +267,7 @@ offset_left = -128.0
 offset_top = -128.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("9_v3gpa")
+script = ExtResource("12_fkxhr")
 destination = "yourSceneName"
 metadata/_edit_use_anchors_ = true
 
