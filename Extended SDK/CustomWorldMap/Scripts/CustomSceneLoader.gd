@@ -1,10 +1,10 @@
 extends Node
-class_name ModSceneLoader
+class_name CustomSceneLoader
 
 static var DestinationScene : String
 var loadStatus = 0
 var progress = []
-var loadReady = false;
+var loadReady = false
 var newScene
 @export var LoadText : RichTextLabel
 

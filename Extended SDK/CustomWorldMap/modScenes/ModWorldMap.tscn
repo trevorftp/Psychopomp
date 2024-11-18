@@ -2,8 +2,8 @@
 
 [ext_resource type="Shader" path="res://Shaders/WaterCanvas.gdshader" id="3_vcxgg"]
 [ext_resource type="Texture2D" uid="uid://dv8brikcj0m7t" path="res://textures/WaterCaustic.png" id="4_yx7sw"]
+[ext_resource type="Texture2D" uid="uid://c6ieny0sk1ilh" path="res://Sprites/temp.png" id="5_lfn02"]
 [ext_resource type="Texture2D" uid="uid://cr273r7ih8ss5" path="res://Sprites/MapPsych1.png" id="5_sptcf"]
-[ext_resource type="Texture2D" uid="uid://c6ieny0sk1ilh" path="res://Sprites/temp.png" id="6_2q55o"]
 [ext_resource type="FontFile" uid="uid://3wcfres3jl6e" path="res://Fonts/DBStylez.ttf" id="7_cmg46"]
 [ext_resource type="Script" path="res://Scripts/QuitToMenu.gd" id="9_dle5t"]
 [ext_resource type="Script" path="res://Scripts/ModMapButton.gd" id="12_fkxhr"]
@@ -125,7 +125,7 @@ scroll_active = false
 
 [node name="Location" type="Sprite2D" parent="."]
 position = Vector2(484, 152)
-texture = ExtResource("6_2q55o")
+texture = ExtResource("5_lfn02")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Location"]
 offset_left = -100.0
@@ -153,7 +153,7 @@ destination = "yourSceneName"
 
 [node name="Location2" type="Sprite2D" parent="."]
 position = Vector2(680, 152)
-texture = ExtResource("6_2q55o")
+texture = ExtResource("5_lfn02")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Location2"]
 offset_left = -100.0
@@ -183,7 +183,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Location5" type="Sprite2D" parent="."]
 position = Vector2(680, 336)
-texture = ExtResource("6_2q55o")
+texture = ExtResource("5_lfn02")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Location5"]
 offset_left = -100.0
@@ -213,7 +213,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Location3" type="Sprite2D" parent="."]
 position = Vector2(288, 152)
-texture = ExtResource("6_2q55o")
+texture = ExtResource("5_lfn02")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Location3"]
 offset_left = -100.0
@@ -243,7 +243,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Location4" type="Sprite2D" parent="."]
 position = Vector2(288, 336)
-texture = ExtResource("6_2q55o")
+texture = ExtResource("5_lfn02")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Location4"]
 offset_left = -100.0
